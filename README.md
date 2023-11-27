@@ -1,6 +1,6 @@
-# CampMeme
+# Camp'Meme
 
-This is a project 
+This project has been initialized with Vite
 
 - React-Router-Dom
 - TailwindCSS
