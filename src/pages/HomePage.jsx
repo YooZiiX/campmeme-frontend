@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const HomePage = () => {
   return (
     <div>
-        <div className='bg-white'>
+        <div>
             <Link to='/meme/5'>To Meme</Link>
         </div>
         {/* <div>
