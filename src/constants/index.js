@@ -1,6 +1,9 @@
 export const filter = [
     {name:"Images"},
     {name:"GIFs"},
-    {name:"Populaire"},
-    {name:"Récent"}
 ];
+
+export const navbar = [
+    {label:"Populaire", url:"/"},
+    {label:"Récent", url:"/"}
+]
