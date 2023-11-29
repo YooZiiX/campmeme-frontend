@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <div>
         <div className='flex align-middle items-center'>
-            <Link to='/'><Button title={"Home Page"}/></Link>
+            <Button title={"Home Page"} to="/" type="danger"/>
             {
               memes.map((meme) => (
                 <div key={meme._id}>
@@ -31,6 +31,7 @@ const HomePage = () => {
               ))
             }
         </div>
+        <Button title="Partie Dev" to="/dev"/>
     </div>
   )
 }
