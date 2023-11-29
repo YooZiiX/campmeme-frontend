@@ -1,18 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../components/ui/Button'
 
 const HomePage = () => {
   return (
     <div>
-        <div>
-            <Link to='/meme/5'>To Meme</Link>
+        <div className='flex align-middle items-center'>
+            <Link to='/meme/5'><Button title={"To meme"}/></Link>
         </div>
-        {/* <div>
-            <Card title={"MEME"} id={1} />
-            <Card title={"PAS"} id={2} />
-            <Card title={"UN"} id={3} />
-            <Card title={"DEUX"} id={4} />
-        </div> */}
     </div>
   )
 }
