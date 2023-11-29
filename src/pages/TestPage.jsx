@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Container from '../components/ui/Container';
+import Header from "../components/Header";
 import Button from '../components/ui/Button';
 import Display from '../components/ui/Display';
 import Tag from '../components/ui/Tag';
@@ -7,12 +9,9 @@ import {memes} from "../data/data";
 
 const HomePage = () => {
   return (
-    <div>
-        <div className='flex align-middle items-center'>
-          <div className='justify-center'>
-            <Button title={"Home Page"} to="/" type="danger"/>
-            <Button title="Partie Dev" to="/dev"/>
-          </div>
+    <div className='w-screen'>
+      <Header />
+      <Container>
           <div className="grid grid-cols-4 gap-3">
             {
               memes.map((meme) => (
@@ -35,7 +34,7 @@ const HomePage = () => {
               ))
             }
           </div>
-        </div>
+      </Container>
     </div>
   )
 }
