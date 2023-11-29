@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../components/ui/Container';
 import Header from "../components/Header";
-import Button from '../components/ui/Button';
 import Display from '../components/ui/Display';
 import Tag from '../components/ui/Tag';
 import {memes} from "../data/data";
@@ -23,9 +22,7 @@ const HomePage = () => {
                   {
                   meme.tags.map((tag)=>(
                     <div key={tag._id} className='my-1 mx-1'>
-                      <Link to="/">
-                        <Tag title={tag.label} color={tag.color}/>
-                      </Link>
+                      <Tag title={tag.label} to="/" color={tag.color}/>
                     </div>
                   ))
                   }
