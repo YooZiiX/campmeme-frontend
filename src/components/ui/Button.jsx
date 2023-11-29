@@ -16,7 +16,7 @@ const Button = (props) => {
   // }
 
   return (
-    <Link to={props.to} className={`flex bg-[${background}] rounded-md w-fit m-2 px-3 py-2 text-black text-center text-lg font-bold uppercase hover:`}>
+    <Link to={props.to} className={`flex bg-[${background}] rounded-md w-fit m-2 px-3 py-2 text-black text-center text-lg font-bold uppercase ${props.className}`}>
         {props.title}
     </Link>
     
