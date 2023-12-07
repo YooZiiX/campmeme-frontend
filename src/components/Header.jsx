@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './ui/Button';
-import ProfilPicture from "../assets/profil.jpg";
+import ProfilPicture from "../assets/template.png";
 
 const Header = () => {
   return (
@@ -13,7 +13,7 @@ const Header = () => {
           <Button title="inscription" to="/"/>
           <Button title="connexion" to="/dev"/>
           <Link to="/" className={`bg-red-400 mt-2 rounded-full w-11 h-11 text-center`}>
-            <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full'/>
+            <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full w-full h-full'/>
           </Link>
         </div>
       </nav>
