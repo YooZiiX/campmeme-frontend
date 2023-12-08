@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './ui/Button';
-import ProfilPicture from "../assets/template.png";
+import ProfilPicture from "../assets/profil.jpg";
 
 const Header = () => {
   return (
-    <header className="z-50 top-0 sticky w-full shadow">
+    <header className="z-50 top-0 sticky w-full bg-white shadow">
       <nav className="bg-white max-w-6xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex m-1">Camp'Meme</Link>
+        <div className='absolute left-2 bg-gray-400 w-11 h-11 rounded-md' onClick={() => console.log("clicked")}>
+          .
+        </div>
+        <Link to="/" className="flex m-1">
+          <p>Camp'Meme</p>
+        </Link>
         <div className='bg-red-400 w-96 p-1 rounded-md'>Barre de recherche</div>
         <div className="flex justify-center">
           <Button title="inscription" to="/"/>
