@@ -1,15 +1,14 @@
 import React from 'react';
-import Container from '../components/ui/Container';
-import Header from "../components/Header";
 import Display from '../components/ui/Display';
-import {memes} from "../data/data";
+import { memes } from '../data/data';
 
-const TestPage = () => {
+const RandomMeme = () => {
   return (
-    <div className='w-screen'>
-      <Header />
-      <Container>
-          <div className="grid grid-cols-4 gap-x-3 gap-y-2">
+    <div className='m-4'>
+        <p className='flex justify-center text-5xl font-bold'>
+            Random Memes
+        </p>
+        <div className="grid grid-cols-3 gap-x-3 gap-y-2 mt-4">
             {
             memes.map((meme) => (
               <div key={meme._id} className="flex justify-center">
@@ -18,9 +17,8 @@ const TestPage = () => {
             ))
             }
           </div>
-      </Container>
     </div>
   )
 }
 
-export default TestPage;
+export default RandomMeme;

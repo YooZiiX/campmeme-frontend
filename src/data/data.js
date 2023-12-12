@@ -14,6 +14,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
     {
         _id: "2",
@@ -25,6 +26,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
     {
         _id: "3",
@@ -46,6 +48,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "142",
@@ -62,6 +65,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "2242",
@@ -73,6 +77,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
     {
         _id: "3252",
@@ -94,6 +99,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
     {
         _id: "224222",
@@ -105,6 +111,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "3253312",
@@ -126,6 +133,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "22142",
@@ -137,6 +145,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "32512",
@@ -158,6 +167,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: false,
     },
     {
         _id: "2242122",
@@ -169,6 +179,7 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
     {
         _id: "3253312",
@@ -190,5 +201,6 @@ export const memes = [
             },
         ],
         img: "a",
+        isPopular: true,
     },
 ];
