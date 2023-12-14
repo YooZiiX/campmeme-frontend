@@ -11,10 +11,10 @@ const Header = () => {
           <p>Camp'Meme</p>
         </Link>
         <div className='bg-red-400 w-96 p-1 rounded-md'>Barre de recherche</div>
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center">
           <Button title="inscription" to="/inscription" bg="#427AA1" />
           <Button title="connexion" to="/connexion" bg="#064789" />
-          <Link to="/" className={`bg-red-400 mt-2 rounded-full w-11 h-11 text-center`}>
+          <Link to="/" className={`bg-red-400 rounded-full w-10 h-10 text-center`}>
             <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full w-full h-full' />
           </Link>
         </div>
