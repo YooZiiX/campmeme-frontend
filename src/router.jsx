@@ -1,20 +1,22 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from './pages/HomePage';
-import MemePage from './pages/MemePage';
-import TestPage from './pages/TestPage';
-import SignupPage from './pages/SignupPage';
+import Home from './pages/HomePage';
+import Meme from './pages/MemePage';
+import Test from './pages/TestPage';
+import Signup from './pages/SignupPage';
 import Upload from './pages/UploadPage';
+import Profil from './pages/ProfilPage';
 
 function Router() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/meme/:id' element={<MemePage />} />
-            <Route path='/connexion' element={<SignupPage />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/meme/:id' element={<Meme />} />
+            <Route path='/connexion' element={<Signup />} />
             <Route path='/upload' element={<Upload />} />
-            <Route path='/dev' element={<TestPage />} />
+            <Route path='/profil/:id' element={<Profil />} />
+            <Route path='/dev' element={<Test />} />
         </Routes>
     </BrowserRouter>
   )
