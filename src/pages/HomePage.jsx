@@ -13,7 +13,7 @@ const HomePage = () => {
       <div className='flex'>
             <Sidebar />
             <Container>
-                <p className="flex justify-center font-bold text-5xl m-4">
+                <p className="flex justify-center font-bold font-sans text-5xl m-4">
                   Memes Populaires
                 </p>
                 <div className="grid grid-cols-3 gap-x-3 gap-y-2 mt-4">
