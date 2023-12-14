@@ -2,13 +2,16 @@ import React from 'react';
 import Container from '../components/ui/Container';
 import Header from "../components/Header";
 import Display from '../components/ui/Display';
-import {memes} from "../data/data";
+import { memes } from "../data/data";
+import Sidebar from '../components/Sidebar';
 
 const TestPage = () => {
   return (
-    <div className='w-screen'>
+    <div className='w-screen h-screen'>
       <Header />
-      <Container>
+      <div className='flex'>
+        <Sidebar />
+        <Container>
           <div className="grid grid-cols-4 gap-x-3 gap-y-2">
             {
             memes.map((meme) => (
@@ -18,7 +21,8 @@ const TestPage = () => {
             ))
             }
           </div>
-      </Container>
+        </Container>
+      </div>
     </div>
   )
 }
