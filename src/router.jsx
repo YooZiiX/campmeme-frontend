@@ -12,7 +12,7 @@ function Router() {
         <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/meme/:id' element={<MemePage />} />
-            <Route path='/connection' element={<SignupPage />} />
+            <Route path='/connexion' element={<SignupPage />} />
             <Route path='/upload' element={<Upload />} />
             <Route path='/dev' element={<TestPage />} />
         </Routes>
