@@ -43,7 +43,7 @@ const MemePage = () => {
           <img src={Image} alt='img' className='m-2 h-20 w-20' />
           <img src={Image} alt='img' className='m-2 h-20 w-20' />
           <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20 ' />
+          <img src={Image} alt='img' className='m-2 h-20 w-20' />
         </div>
       </div>
     </div>
