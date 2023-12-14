@@ -23,7 +23,7 @@ const Upload = () => {
             if (tagList.length !== 0 && memeLink){
                 await axios.post(`http://25.53.196.55:8080/meme/post`,
                 {
-                    filePath:memeLink,
+                    file_path:memeLink,
                     tags:tagList,
                     contributor:userId
                 },
