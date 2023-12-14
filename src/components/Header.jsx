@@ -25,7 +25,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Button title="connexion" to="/connexion" bg="#A3CDCE" />
+                <Button title="connexion" to="/connexion" bg="#64BEB6" />
               </>
             )
           }

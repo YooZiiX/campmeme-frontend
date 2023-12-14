@@ -13,8 +13,8 @@ const HomePage = () => {
       <div className='flex'>
             <Sidebar />
             <Container>
-                <p className="flex justify-center font-bold font-sans text-5xl m-4">
-                  Memes Populaires
+                <p className="flex justify-center border-b-2 border-[#64BEB6] text-4xl font-extrabold font-sans text-[#63C6BD] m-4">
+                   Memes Populaires
                 </p>
                 <div className="grid grid-cols-3 gap-x-3 gap-y-2 mt-4">
                   {
@@ -26,7 +26,7 @@ const HomePage = () => {
                   }
                 </div>
               <div className='m-4'>
-                <p className='flex justify-center text-5xl font-bold'>
+                <p className="flex justify-center border-b-2 border-[#64BEB6] text-4xl font-extrabold font-sans text-[#63C6BD] m-4">
                   Random Memes
                 </p>
                 <div className="grid grid-cols-3 gap-x-3 gap-y-2 mt-4">

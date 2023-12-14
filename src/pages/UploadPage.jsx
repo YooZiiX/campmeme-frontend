@@ -40,7 +40,7 @@ const Upload = () => {
         <div className='flex flex-col items-center mt-8'>
             <div>
                 <input 
-                    className='bg-red-400 w-96 p-1 rounded-md text-black'
+                    className=' w-96 p-1 rounded-md border-2 text-black'
                     type='text'
                     placeholder='Copier le lien du meme'
                     value={memeLink}
@@ -52,11 +52,11 @@ const Upload = () => {
                     type='text'
                     placeholder='Ajouter un tag'
                     value={memeInput}
-                    className='text-center uppercase rounded-md'
+                    className='text-center uppercase rounded-md border-2'
                     onChange={(e) => setMemeInput(e.target.value)}
                 />
                 <button
-                    className='ml-2 bg-blue-500 px-2 py-1 text-white rounded-md'
+                    className='ml-2 bg-[#64BEB6] px-2 py-1 text-white rounded-md'
                     onClick={handleAddTag}
                 >
                     Ajouter
@@ -64,12 +64,12 @@ const Upload = () => {
                 
             </div>
             <button
-                    className='m-2 bg-blue-400 px-2 py-1 text-white rounded-md'
+                    className='m-2 bg-[#64BEB6] px-2 py-1 mt-10 text-white rounded-md'
                     onClick={handleUploadMeme}
                 >
                     Déposer
                 </button>
-                <div className='grid grid-cols-4 gap-2 mt-2'>
+                <div className='grid grid-cols-5 gap-2 mt-2'>
                     {tagList.map((meme, index) => (
                         <div key={index} className='mx-1'>
                             <Tag title={meme} to="/" color={'#4ecdc4'}/>                            
