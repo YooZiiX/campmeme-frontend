@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    margin: 0;
+    height: auto;
+    background: linear-gradient(to bottom, #ffdbac, #ffb366);
+
+}

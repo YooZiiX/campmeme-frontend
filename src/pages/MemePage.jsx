@@ -8,7 +8,7 @@ import icone_share from '../assets/icone_share.png';
 
 const MemePage = () => {
   return (
-    <div className='h-screen w-screen'>   
+        <div className='h-screen w-screen'>   
       <Header />
       <div className='flex justify-center items-center h-screen'>
         <div className='flex flex-row align-top'>
@@ -47,6 +47,7 @@ const MemePage = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
