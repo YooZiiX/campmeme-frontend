@@ -5,7 +5,7 @@ import MemePage from './pages/MemePage';
 import TestPage from './pages/TestPage';
 import SigninPage from './pages/SigninPage';
 import SignupPage from './pages/SignupPage';
-import Upload from './pages/Upload';
+import Upload from './pages/UploadPage';
 
 function Router() {
   return (
