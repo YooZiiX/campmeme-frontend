@@ -19,21 +19,22 @@ const Upload = () => {
         e.preventDefault();
 
         if (window.localStorage.getItem("userId")!= null) {
-            const { username } = window.localStorage.getItem("userItem");
+            const userId = window.localStorage.getItem("userId");
             if (tagList.length !== 0 && memeLink){
                 await axios.post(`http://25.53.196.55:8080/meme/post`,
                 {
-                    memeLink,
-                    tagList,
-                    username
+                    filePath:memeLink,
+                    tags:tagList,
+                    contributor:userId
                 },
                 {
                     headers: {
-                        "Content-type": "application/json"
+                        "Content-Type": "application/json"
                     }
                 }
                 ).then((response) => {
-                    console.log("Here");
+                    console.log(response);
+                    // window.location.href = "/upload";
                 });
             } else {
                 alert("Vous devez renseigner au minimum un Tag et un Lien");
