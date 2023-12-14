@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
 import icon_user from '../assets/utilisateur.png'
@@ -6,6 +6,8 @@ import icon_mail from '../assets/email.png'
 import icon_mdp from '../assets/mot-de-passe.png'
 import '../styles/signup.css'
 import { Link } from 'react-router-dom';
+import generateToken from '../utils/generateToken';
+import isValidEmail from '../utils/isValidEmail';
 
 const SignupPage = () => {
   const [signUsername, setSignUsername] = useState("");
@@ -14,18 +16,30 @@ const SignupPage = () => {
 
   const submitSignHandler = async (e) => {
     e.preventDefault();
-    const { data } = await axios.post(`http://25.53.196.55:8080/auth/register`,
-      {
-        signUsername,
-        signEmail,
-        signPassword
-      },
+    
+    if (isValidEmail(signEmail)) {
+      setSignEmail();
+      setSignPassword();
+      alert("Insert a real mail adress");
+    } else if (signPassword.length <= 8) {
+      setSignPassword();
+      alert("Password rules : 8 charaters min");
+    } else {
+
+      await axios.post(`http://25.53.196.55:8080/auth/register`,
+      { username: signUsername, email: signEmail, password: signPassword },
       {
         headers: {
           "Content-type": "application/json",
         },
-      }
-    )
+      }).then((response) => {
+        if (response.data.success) {
+
+            // window.localStorage.setItem("userItem",result);
+            // window.location.href('/');
+        }
+      });
+    }
   };
 
   const [logEmail, setLogEmail] = useState("");
@@ -33,18 +47,29 @@ const SignupPage = () => {
 
   const submitLogHandler = async (e) => {
     e.preventDefault();
-
-    const { data } = await axios.post(`http://25.53.196.55:8080/auth/login`,
-      {
-        logEmail,
-        logPassword
-      },
-      {
-        headers: {
-          "Content-type": "application/json",
-        },
-      }
-    )
+    if (isValidEmail(logEmail) && logEmail.length <= 0) {
+      setLogEmail();
+      setLogPassword();
+      alert("Insert a real mail adress");
+    } else if (logPassword.length < 6){
+      setLogPassword();
+      alert("Password rules : 8 charaters min");
+    } else {
+      await axios.post(`http://25.53.196.55:8080/auth/login`,
+              { email:logEmail, password:logPassword},
+              {
+                headers: {
+                  "Content-type": "application/json",
+                },
+              }).then((response) => {
+                if (response.data.success) {
+                  console.log(response.data);
+                  // window.localStorage.setItem("userToken", generateToken(response.data.id));
+                  window.localStorage.setItem("userId", response.data.id);
+                  window.location.href = "/";
+              }
+            });
+    };
   };
 
   return (
@@ -71,8 +96,8 @@ const SignupPage = () => {
               <input type='password' placeholder='Mot de passe' onChange={(e) => setSignPassword(e.target.value)} />
             </div>
           </form>
-          <div className='submit-container1 justify-center' onClick={submitSignHandler}>
-            <div className='submit'>Créer un compte</div>
+          <div className='submit-container1 justify-center'>
+            <div className='submit' onClick={submitSignHandler}>Créer un compte</div>
           </div>
         </div>
       </div>
@@ -94,8 +119,8 @@ const SignupPage = () => {
             </div>
           </form>
           <Link to="/" className='forgot-password'>Mot de passe oublié</Link>
-          <div className='submit-container1 justify-center' onClick={submitLogHandler}>
-            <div className='submit'>Se connecter</div>
+          <div className='submit-container1 justify-center'>
+            <div className='submit' onClick={submitLogHandler}>Se connecter</div>
           </div>
         </div>
       </div>
