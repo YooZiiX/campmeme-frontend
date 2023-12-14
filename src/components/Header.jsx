@@ -11,8 +11,8 @@ const Header = () => {
     <header className="z-50 top-0 sticky w-full bg-[FDFDFD]  border-b-2 border-neutral-200 shadow">
       <nav className="bg-white max-w-6xl mx-auto flex items-center justify-between p-1">
         <Link to="/" className="flex m-1 items-center">
-          <img src={campmeme} alt='icone' className='m-2 mr-50 w-23 h-7' /> 
-          <img src={logo} alt='icone' className='m-2 mr-30 w-12 h-13' />
+          <img src={campmeme} alt='icon' className='m-2 mr-50 w-23 h-7' /> 
+          <img src={logo} alt='icon' className='m-2 mr-30 w-12 h-13' />
         </Link>
         <div className='bg-[#FFFFFF] w-96 ml-40 mr-10 p-1 rounded-md border-2'>Barre de recherche</div>
         <div className="flex justify-center items-center">
