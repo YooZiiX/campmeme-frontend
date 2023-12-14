@@ -1,23 +1,35 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import Header from "../components/Header";
+import Tag from '../components/ui/Tag';
 import Image from '../assets/template.png';
 import icone_coeur from '../assets/icone_coeur.png';
 import icone_share from '../assets/icone_share.png';
 
-// Matthieu Sfeir
-
 const MemePage = () => {
+  const { id } = useParams();
+  const url = process.env.HAMACHI || "http://25.53.196.55:8080";
+
+  const config = {
+    headers: {
+        "Content-type": "application/json",
+    },
+  };
+
+  const { data } = axios.get(`${url}/meme/${id}`, config);
+
   return (
         <div className='h-screen w-screen'>   
       <Header />
       <div className='flex justify-center items-center h-screen'>
         <div className='flex flex-row align-top'>
           <div className='m-2 mr-40'>
-            <div>Contributeur</div>
+            <div>{data ? data.contributeur : "Contributor"}</div>
           </div>
           <div className='flex items-start'>
             <div className='w-full flex justify-center flex-col'>
-              <img src={Image} alt='img' className='m-2 h-full' /> 
+              <img src={`${data.filePath}`} alt='img' className='m-2 h-full' /> 
               <div className='flex'>       
                 <img src={icone_coeur} alt='icone' className='m-2 w-5 h-5' />
                 <img src={icone_share} alt='icone' className='m-2 w-5 h-5' />
@@ -25,10 +37,11 @@ const MemePage = () => {
             </div>
           </div>
           <div className='grid grid-cols-3 gap-2'>
-            <div className='my-2'>1</div>
-            <div className='my-2'>2</div>
-            <div className='my-2'>3</div>
-            <div className='my-2'>4</div>
+            {data.tags.map(
+              (tag) => (
+                <Tag to="/" title={tag} />
+              )
+            )}
           </div>
         </div>
       </div>

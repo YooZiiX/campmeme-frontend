@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import icone_user from '../assets/utilisateur.png'
-import icone_mail from '../assets/email.png'
-import icone_mdp from '../assets/mot-de-passe.png'
+import axios from 'axios';
+import icon_user from '../assets/utilisateur.png'
+import icon_mail from '../assets/email.png'
+import icon_mdp from '../assets/mot-de-passe.png'
 import '../styles/signup.css'
 import { Link } from 'react-router-dom';
 
@@ -13,8 +14,18 @@ const SignupPage = () => {
 
   const submitSignHandler = async (e) => {
     e.preventDefault();
-    console.log({signUsername, signEmail , signPassword});
-    // dispatch(login(email, password));
+    const { data } = await axios.post(`http://25.53.196.55:8080/auth/register`,
+      {
+        signUsername,
+        signEmail,
+        signPassword
+      },
+      {
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
   };
 
   const [logEmail, setLogEmail] = useState("");
@@ -22,8 +33,18 @@ const SignupPage = () => {
 
   const submitLogHandler = async (e) => {
     e.preventDefault();
-    console.log({ logEmail , logPassword });
-    // dispatch(login(email, password));
+
+    const { data } = await axios.post(`http://25.53.196.55:8080/auth/login`,
+      {
+        logEmail,
+        logPassword
+      },
+      {
+        headers: {
+          "Content-type": "application/json",
+        },
+      }
+    )
   };
 
   return (
@@ -38,15 +59,15 @@ const SignupPage = () => {
         <div>
           <form className='inputs' onSubmit={submitSignHandler}>
             <div className='input'>
-              <img src={icone_user} alt="icon" className='w-5 h-5' />
+              <img src={icon_user} alt="icon" className='w-5 h-5' />
               <input type="text" placeholder="Nom d'utilisateur" onChange={(e) => setSignUsername(e.target.value)} />
             </div>
             <div className='input'>
-              <img src={icone_mail} alt="icon" className='w-5 h-5' />
+              <img src={icon_mail} alt="icon" className='w-5 h-5' />
               <input type='email' placeholder='Adresse mail' onChange={(e) => setSignEmail(e.target.value)} />
             </div>
             <div className='input'>
-              <img src={icone_mdp} alt="icon" className='w-5 h-5' />
+              <img src={icon_mdp} alt="icon" className='w-5 h-5' />
               <input type='password' placeholder='Mot de passe' onChange={(e) => setSignPassword(e.target.value)} />
             </div>
           </form>
@@ -64,11 +85,11 @@ const SignupPage = () => {
         <div>
           <form className='inputs' onSubmit={submitLogHandler} >         
             <div className='input'>
-              <img src={icone_mail} alt="icon" className='w-5 h-5' />
+              <img src={icon_mail} alt="icon" className='w-5 h-5' />
               <input type='email' placeholder='Adresse mail' onChange={(e) => setLogEmail(e.target.value) }/>
             </div>
             <div className='input'>
-              <img src={icone_mdp} alt="icon" className='w-5 h-5' />
+              <img src={icon_mdp} alt="icon" className='w-5 h-5' />
               <input type='password' placeholder='Mot de passe' onChange={(e) => setLogPassword(e.target.value)} />
             </div>
           </form>
