@@ -22,7 +22,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Button title="connection" to="/connection" bg="#427AA1" />
+                <Button title="connexion" to="/connexion" bg="#427AA1" />
               </>
             )
           }
