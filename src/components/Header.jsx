@@ -4,9 +4,9 @@ import Button from './ui/Button';
 import ProfilPicture from "../assets/template.png";
 
 const Header = () => {
-  var isConnected = false;
+  const userConnected = window.localStorage.getItem("userId");
   return (
-    <header className="z-50 top-0 sticky w-full bg-white shadow">
+    <header className="z-50 top-0 sticky w-full bg-[#FDFDFD] shadow">
       <nav className="bg-white max-w-6xl mx-auto flex items-center justify-between p-1">
         <Link to="/" className="flex m-1">
           <p>Camp'Meme</p>
@@ -14,7 +14,7 @@ const Header = () => {
         <div className='bg-red-400 w-96 p-1 rounded-md'>Barre de recherche</div>
         <div className="flex justify-center items-center">
           {
-            isConnected ? (
+            userConnected ? (
               <>
                 <Link to="/" className={`bg-red-400 rounded-full w-10 h-10 text-center`}>
                   <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full w-full h-full' />
