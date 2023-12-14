@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from "../components/Header";
@@ -9,15 +9,34 @@ import icone_share from '../assets/icone_share.png';
 
 const MemePage = () => {
   const { id } = useParams();
-  const url = process.env.HAMACHI || "http://25.53.196.55:8080";
+  // const url = process.env.HAMACHI || process.env.BACKEND || "http://25.53.196.55:8080";
+  console.log(window.localStorage.getItem("userItem"));
 
-  const config = {
-    headers: {
-        "Content-type": "application/json",
-    },
-  };
+  const [data, setData] = useState({
+    id: 0,
+    contributeur: "username",
+    filePath: "",
+    tags: [
+      "1",
+      "2"
+    ]
+  });
 
-  const { data } = axios.get(`${url}/meme/${id}`, config);
+  useEffect(() => {
+    const config = {
+      headers: {
+          "Content-type": "application/json",
+      },
+    };
+  
+    axios.get(`http://25.53.196.55:8080/meme/${id}`, config)
+      .then((response) => {
+        return response.data;
+      })
+      .then((result) => {
+        setData(result);
+      });
+  }, [id]);
 
   return (
         <div className='h-screen w-screen'>   
@@ -38,8 +57,8 @@ const MemePage = () => {
           </div>
           <div className='grid grid-cols-3 gap-2'>
             {data.tags.map(
-              (tag) => (
-                <Tag to="/" title={tag} />
+              (tag, index) => (
+                <Tag to="/" title={tag} key={index} />
               )
             )}
           </div>

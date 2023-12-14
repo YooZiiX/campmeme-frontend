@@ -18,18 +18,29 @@ const Upload = () => {
     const handleUploadMeme = async (e) => {
         e.preventDefault();
 
-        if (tagList.length !== 0 && memeLink){
-            const { data } = await axios.post(`http://25.53.196.55:8080/meme/post`,
-            {
-                memeLink,
-                tagList
-            },
-            {
-                headers: {
-                    "Content-type": "application/json"
+        if (window.localStorage.getItem("userId")!= null) {
+            const userId = window.localStorage.getItem("userId");
+            if (tagList.length !== 0 && memeLink){
+                await axios.post(`http://25.53.196.55:8080/meme/post`,
+                {
+                    filePath:memeLink,
+                    tags:tagList,
+                    contributor:userId
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
                 }
+                ).then((response) => {
+                    console.log(response);
+                    // window.location.href = "/upload";
+                });
+            } else {
+                alert("Vous devez renseigner au minimum un Tag et un Lien");
             }
-            );
+        } else {
+            alert("Vous devez être connecté pour déposer un meme");
         }
     };
 
