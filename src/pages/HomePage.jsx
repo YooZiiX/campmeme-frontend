@@ -13,7 +13,6 @@ const HomePage = () => {
       <div className='flex'>
             <Sidebar />
             <Container>
-              
                 <p className="flex justify-center font-bold text-5xl m-4">
                   Memes Populaires
                 </p>
