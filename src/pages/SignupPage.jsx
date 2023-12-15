@@ -6,7 +6,7 @@ import icon_mail from '../assets/email.png'
 import icon_mdp from '../assets/mot-de-passe.png'
 import '../styles/signup.css'
 import { Link } from 'react-router-dom';
-import generateToken from '../utils/generateToken';
+// import generateToken from '../utils/generateToken';
 import isValidEmail from '../utils/isValidEmail';
 
 const SignupPage = () => {
@@ -14,14 +14,18 @@ const SignupPage = () => {
   const [signEmail, setSignEmail] = useState("");
   const [signPassword, setSignPassword] = useState("");
 
+  const PASSWORD_LENGTH = 6;
+
   const submitSignHandler = async (e) => {
     e.preventDefault();
     
-    if (isValidEmail(signEmail)) {
+    if (signUsername.length <= 0) {
+      alert("Renseigner un Nom d'utilisateur contenant + d'un caractère.");
+    } else if (!isValidEmail(signEmail)) {
       setSignEmail();
       setSignPassword();
       alert("Insert a real mail adress");
-    } else if (signPassword.length <= 8) {
+    } else if (signPassword.length <= PASSWORD_LENGTH) {
       setSignPassword();
       alert("Password rules : 8 charaters min");
     } else {
@@ -34,9 +38,9 @@ const SignupPage = () => {
         },
       }).then((response) => {
         if (response.data.success) {
-
-            // window.localStorage.setItem("userItem",result);
-            // window.location.href('/');
+            // window.localStorage.setItem("userToken", generateToken(response.data.id));
+            window.localStorage.setItem("userId",response.data.id);
+            window.location.href('/');
         }
       });
     }
@@ -47,11 +51,11 @@ const SignupPage = () => {
 
   const submitLogHandler = async (e) => {
     e.preventDefault();
-    if (isValidEmail(logEmail) && logEmail.length <= 0) {
+    if (!isValidEmail(logEmail)) {
       setLogEmail();
       setLogPassword();
       alert("Insert a real mail adress");
-    } else if (logPassword.length < 6){
+    } else if (logPassword.length < PASSWORD_LENGTH){
       setLogPassword();
       alert("Password rules : 8 charaters min");
     } else {
@@ -63,7 +67,6 @@ const SignupPage = () => {
                 },
               }).then((response) => {
                 if (response.data.success) {
-                  console.log(response.data);
                   // window.localStorage.setItem("userToken", generateToken(response.data.id));
                   window.localStorage.setItem("userId", response.data.id);
                   window.location.href = "/";
