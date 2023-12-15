@@ -4,8 +4,8 @@ import Header from '../components/Header';
 import Tag from '../components/ui/Tag';
 
 const Upload = () => {
-    const [memeLink, setMemeLink] = useState();
-    const [memeInput, setMemeInput] = useState();
+    const [memeLink, setMemeLink] = useState("");
+    const [memeInput, setMemeInput] = useState("");
     const [tagList, setTagList] = useState([]);
 
     const handleAddTag = () => {
@@ -13,7 +13,7 @@ const Upload = () => {
             setTagList([...tagList, memeInput]);
             setMemeInput('');
         }
-    }
+    };
 
     const handleUploadMeme = async (e) => {
         e.preventDefault();
@@ -33,8 +33,7 @@ const Upload = () => {
                     }
                 }
                 ).then((response) => {
-                    console.log(response);
-                    window.location.href = "/upload";
+                    window.location.href = `/meme/${response.data.memeId}`;
                 });
             } else {
                 alert("Vous devez renseigner au minimum un Tag et un Lien");
@@ -64,7 +63,7 @@ const Upload = () => {
                     placeholder='Ajouter un tag'
                     value={memeInput}
                     className='text-center uppercase rounded-md border-2'
-                    onChange={(e) => setMemeInput(e.target.value)}
+                    onChange={(e) => setMemeInput(e.target.value.toLowerCase())}
                 />
                 <button
                     className='ml-2 bg-[#64BEB6] px-2 py-1 text-white rounded-md'
