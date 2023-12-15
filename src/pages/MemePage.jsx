@@ -3,15 +3,13 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from "../components/Header";
 import Tag from '../components/ui/Tag';
-import Image from '../assets/template.png';
+import Display from '../components/ui/Display';
 import icone_coeur from '../assets/icone_coeur.png';
 import icone_share from '../assets/icone_share.png';
 
 const MemePage = () => {
   const { id } = useParams();
   // const url = process.env.HAMACHI || process.env.BACKEND || "http://25.53.196.55:8080";
-  console.log(window.localStorage.getItem("userItem"));
-
   const [data, setData] = useState({
     id: 0,
     contributeur: "username",
@@ -31,12 +29,47 @@ const MemePage = () => {
   
     axios.get(`http://25.53.196.55:8080/meme/${id}`, config)
       .then((response) => {
-        return response.data;
+        if (response.status === 200) {
+          return response.data;
+        } else {
+          alert(`Can't Reach Meme n°${id}`);
+        }
       })
       .then((result) => {
         setData(result);
       });
   }, [id]);
+
+  const [randomMemes, setRandomMemes] = useState([
+    {
+      id: 0,
+      tags: [
+        "ok"
+      ],
+      filePath: "",
+      likeCount: 0,
+      contributorId: "",
+    }
+  ]);
+
+  useEffect(() => {
+    const config = {
+      headers: {
+          "Content-type": "application/json",
+      },
+    };
+
+    axios.get("http://25.53.196.55:8080/meme/random?quantity=6", config)
+    .then((response) => {
+      if (response.status === 200) {
+        return response.data;
+      } else {
+        alert("Can't reach Random Memes !");
+      }
+    }).then((result) => {
+      setRandomMemes(result);
+    });
+  }, []);
 
   return (
         <div className='h-screen w-screen'>   
@@ -67,15 +100,13 @@ const MemePage = () => {
       <div className='m-2 ml-80'>
         <div>Suggestion</div>
         <div className="grid grid-cols-3 gap-4 ml-20">
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
-          <img src={Image} alt='img' className='m-2 h-20 w-20' />
+            {
+              randomMemes.map((meme) => (
+              <div key={meme.id} className="flex justify-center">
+                <Display to={`/meme/${meme.id}`} filePath={meme.filePath} tags={meme.tags} />
+              </div>
+              ))
+            }
         </div>
       </div>
     </div>
