@@ -22,14 +22,12 @@ const SignupPage = () => {
     if (signUsername.length <= 0) {
       alert("Renseigner un Nom d'utilisateur contenant + d'un caractère.");
     } else if (!isValidEmail(signEmail)) {
-      setSignEmail();
       setSignPassword();
       alert("Insert a real mail adress");
     } else if (signPassword.length <= PASSWORD_LENGTH) {
       setSignPassword();
-      alert("Password rules : 8 charaters min");
+      alert(`Password rules : ${PASSWORD_LENGTH} charaters min`);
     } else {
-
       await axios.post(`http://25.53.196.55:8080/auth/register`,
       { username: signUsername, email: signEmail, password: signPassword },
       {
@@ -43,7 +41,7 @@ const SignupPage = () => {
             window.localStorage.setItem("userName", response.data.username);
             window.location.href('/');
         } else {
-          console.log(response.data.reason);
+          alert(response.data.reason);
         }
       });
     }
@@ -60,7 +58,7 @@ const SignupPage = () => {
       alert("Insert a real mail adress");
     } else if (logPassword.length < PASSWORD_LENGTH){
       setLogPassword();
-      alert("Password rules : 8 charaters min");
+      alert(`Password rules : ${PASSWORD_LENGTH} charaters min`);
     } else {
       await axios.post(`http://25.53.196.55:8080/auth/login`,
               { email:logEmail, password:logPassword},
@@ -75,7 +73,7 @@ const SignupPage = () => {
                   window.localStorage.setItem("userId", response.data.id);
                   window.location.href = "/";
               } else {
-                console.log(response.data.reason);
+                alert(response.data.reason);
               }
             });
     };
