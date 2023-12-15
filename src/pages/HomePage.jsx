@@ -56,7 +56,7 @@ const HomePage = () => {
       },
     };
 
-    axios.get("http://25.53.196.55:8080/meme/", config)
+    axios.get("http://25.53.196.55:8080/meme/random", config)
     .then((response) => {
       if (response.status === 200) {
         return response.data;
@@ -91,12 +91,12 @@ const HomePage = () => {
                   Random Memes
                 </p>
                 <div className="grid grid-cols-3 gap-x-3 gap-y-2 mt-4">
-                  {
-                  memes.map((meme) => (
-                    <div key={meme._id} className="flex justify-center">
-                      <Display to={`/meme/${meme._id}`} tags={meme.tags} />
-                    </div>
-                    ))
+                {
+                  randomMemes.map((meme) => (
+                  <div key={meme.id} className="flex justify-center">
+                    <Display to={`/meme/${meme.id}`} filePath={meme.filePath} tags={meme.tags} />
+                  </div>
+                  ))
                   }
               </div>
             </div>
