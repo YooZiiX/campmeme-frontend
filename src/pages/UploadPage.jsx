@@ -34,7 +34,7 @@ const Upload = () => {
                 }
                 ).then((response) => {
                     console.log(response);
-                    // window.location.href = "/upload";
+                    window.location.href = "/upload";
                 });
             } else {
                 alert("Vous devez renseigner au minimum un Tag et un Lien");
