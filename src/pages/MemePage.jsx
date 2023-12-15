@@ -4,8 +4,8 @@ import axios from 'axios';
 import Header from "../components/Header";
 import Tag from '../components/ui/Tag';
 import Display from '../components/ui/Display';
-import icone_coeur from '../assets/icone_coeur.png';
-import icone_share from '../assets/icone_share.png';
+import icone_coeur from '../assets/icon_coeur.png';
+import icone_share from '../assets/icon_share.png';
 
 const MemePage = () => {
   const { id } = useParams();

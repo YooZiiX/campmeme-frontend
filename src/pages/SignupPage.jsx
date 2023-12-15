@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import axios from 'axios';
-import icon_user from '../assets/utilisateur.png'
-import icon_mail from '../assets/email.png'
-import icon_mdp from '../assets/mot-de-passe.png'
-import '../styles/signup.css'
+import icon_user from '../assets/utilisateur.png';
+import icon_mail from '../assets/email.png';
+import icon_mdp from '../assets/mot-de-passe.png';
+import '../styles/signup.css';
 import { Link } from 'react-router-dom';
 // import generateToken from '../utils/generateToken';
 import isValidEmail from '../utils/isValidEmail';

@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/HomePage';
 import Meme from './pages/MemePage';
-import Test from './pages/TestPage';
 import Signup from './pages/SignupPage';
 import Upload from './pages/UploadPage';
 import Profil from './pages/ProfilPage';
@@ -16,7 +15,6 @@ function Router() {
             <Route path='/connexion' element={<Signup />} />
             <Route path='/upload' element={<Upload />} />
             <Route path='/profil/:id' element={<Profil />} />
-            <Route path='/dev' element={<Test />} />
         </Routes>
     </BrowserRouter>
   )
