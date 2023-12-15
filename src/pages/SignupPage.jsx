@@ -6,8 +6,7 @@ import icon_mail from '../assets/email.png';
 import icon_mdp from '../assets/mot-de-passe.png';
 import '../styles/signup.css';
 import { Link } from 'react-router-dom';
-// import generateToken from '../utils/generateToken';
-import isValidEmail from '../utils/isValidEmail';
+import { isValidEmail } from "../utils/authUtils";
 
 const SignupPage = () => {
   const [signUsername, setSignUsername] = useState("");
@@ -82,7 +81,7 @@ const SignupPage = () => {
   return (
     <div className='w-screen h-screen'>
     <Header />
-    <div className='flex'>
+    <div className='flex pt-[64px]'>
     <div className='container1 rounded-md'>
       <div className='header1'>
         <div className='header'></div>

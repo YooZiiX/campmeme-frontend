@@ -5,6 +5,7 @@ import Meme from './pages/MemePage';
 import Signup from './pages/SignupPage';
 import Upload from './pages/UploadPage';
 import Profil from './pages/ProfilPage';
+import ResultPage from './pages/ResultPage';
 
 function Router() {
   return (
@@ -15,6 +16,7 @@ function Router() {
             <Route path='/connexion' element={<Signup />} />
             <Route path='/upload' element={<Upload />} />
             <Route path='/profil/:id' element={<Profil />} />
+            <Route path='/result/:q' element={<ResultPage />} />
         </Routes>
     </BrowserRouter>
   )

@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react'; 
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div>
+      Matthieu SFEIR - Steven HENRY - Jérémy LUCAS &copie Tous droits 
+    </div>
   )
 }
 

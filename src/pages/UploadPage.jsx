@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import Tag from '../components/ui/Tag';
+import Container from '../components/ui/Container';
+import Sidebar from '../components/Sidebar';
 
 const Upload = () => {
     const [memeLink, setMemeLink] = useState("");
@@ -46,6 +48,8 @@ const Upload = () => {
   return (
     <div className='w-screen h-screen'>
       <Header />
+      <Sidebar/>
+      <Container>
         <div className='flex justify-center m-5'>
         <div className='flex flex-col items-center mt-8'>
             <div>
@@ -88,7 +92,8 @@ const Upload = () => {
                 </div>
             </div>
         </div>
-        </div>
+        </Container>
+    </div>
   )
 }
 

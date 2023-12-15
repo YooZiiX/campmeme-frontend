@@ -1,11 +1,17 @@
 import React from "react";
+import { useParams } from "react-router-dom"; 
 import Header from "../components/Header";
 import Container from "../components/ui/Container";
 import GridDisplay from "../components/ui/GridDisplay";
 import Sidebar from "../components/Sidebar";
 
 
-const HomePage = () => {
+const ResultPage = () => {
+  let { q } = useParams();
+  const postContent = {
+    query: q
+  };
+
   return (
     <div className="w-full">
       <Header />
@@ -14,14 +20,10 @@ const HomePage = () => {
         <Container>
           <div className="m-10 mt-5">
             <GridDisplay 
-              url="http://25.53.196.55:8080/meme/trend"
-              title="Memes Populaires"
+              url="http://25.53.196.55:8080/meme/query"
+              title="Résultats"
+              body_json={postContent}
               maxTag={5}
-            />
-            <GridDisplay 
-              url="http://25.53.196.55:8080/meme/random?quantity=6"
-              title="Memes Aléatoires"
-              maxTag={2}
             />
           </div>
         </Container>
@@ -30,4 +32,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ResultPage;

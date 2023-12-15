@@ -13,9 +13,11 @@ const ProfilPage = () => {
 
     // const [data, setData] = useState();
   return (
-    <div className='w-screen h-screen'>
+    <div className='w-full h-full'>
         <Header />
-        <div onClick={handleLogout}>Déconnection</div>
+        <div>
+          <div className="bg-red text-red" onClick={handleLogout}>Déconnexion</div>
+        </div>
     </div>
   )
 }
