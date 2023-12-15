@@ -19,7 +19,7 @@ const Header = () => {
           {
             userConnected ? (
               <>
-                <Link to="/" className={`bg-red-400 rounded-full w-12 h-12 text-center`}>
+                <Link to={`/profil/${userConnected}`} className={`bg-red-400 rounded-full w-12 h-12 text-center`}>
                   <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full w-full h-full' />
                 </Link>
               </>
