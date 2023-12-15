@@ -14,11 +14,14 @@ const Header = () => {
           <img src={logo} alt='icon' className='m-2 mr-30 w-12 h-10' />
           <img src={campmeme} alt='icon' className='m-2 mr-50 w-23 h-7' /> 
         </Link>
-        <div className='bg-[#FFFFFF] w-96 ml-40 mr-10 p-1 rounded-md border-2'>Barre de recherche</div>
+        <input type="text" className='bg-[#FFFFFF] w-96 ml-40 mr-10 p-1 rounded-md border-2' placeholder='Barre de recherche' />
         <div className="flex justify-center items-center">
           {
             userConnected ? (
               <>
+                <p className='m-2 text-left font-bold'>
+                  {window.localStorage.getItem("userName")}
+                </p>
                 <Link to={`/profil/${userConnected}`} className={`bg-red-400 rounded-full w-12 h-12 text-center`}>
                   <img src={ProfilPicture} alt="profil" className='bg-cover rounded-full w-full h-full' />
                 </Link>

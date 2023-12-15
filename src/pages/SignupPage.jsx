@@ -40,7 +40,10 @@ const SignupPage = () => {
         if (response.data.success) {
             // window.localStorage.setItem("userToken", generateToken(response.data.id));
             window.localStorage.setItem("userId",response.data.id);
+            window.localStorage.setItem("userName", response.data.username);
             window.location.href('/');
+        } else {
+          console.log(response.data.reason);
         }
       });
     }
@@ -68,8 +71,11 @@ const SignupPage = () => {
               }).then((response) => {
                 if (response.data.success) {
                   // window.localStorage.setItem("userToken", generateToken(response.data.id));
+                  window.localStorage.setItem("userName", response.data.username);
                   window.localStorage.setItem("userId", response.data.id);
                   window.location.href = "/";
+              } else {
+                console.log(response.data.reason);
               }
             });
     };
